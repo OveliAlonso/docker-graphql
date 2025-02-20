@@ -26,3 +26,12 @@ jobs:
         echo "Iniciando login"
         docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
         echo "Fin del login"
+
+    - name: Build Docker image
+      run: |
+        docker build -t bsalcedo/docker-graphql:0.0.0 .
+
+    - name: Build Push image
+      run: |
+        docker push bsalcedo/docker-graphql:0.0.0
+    
